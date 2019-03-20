@@ -7,7 +7,7 @@ resource "aws_instance" "instance" {
   instance_type = "t2.medium"
   key_name = "user5"
   tags = {
-    Name = "fun"
+    Name = "jenkins"
   }
  provisioner "remote-exec"{
   inline=["sudo apt-get -y install python"]
