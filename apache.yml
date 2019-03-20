@@ -1,0 +1,19 @@
+- hosts: host01
+  tasks:
+    - name:
+      apt:
+       name: apache2
+       state: present
+       update_cache: true
+      become: true
+    - name: push new vh
+      copy: 
+        src: files/awesome-app
+        dest: /etc/apache2/sites-available/awesome-app.conf
+        mode: 640
+      become: true
+    - name: starting apache
+      service:
+       name: apache2
+       state: started
+      become: true

@@ -1,0 +1,8 @@
+- hosts: appsvrs
+  tasks:
+    - name:
+      yum:
+       pkg: httpd
+       state: absent
+       update_cache: true
+      become: true
